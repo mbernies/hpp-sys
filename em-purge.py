@@ -1,5 +1,6 @@
 import subprocess
 import shlex
+import time
 
 subprocess.run("clear", shell=True)
 
@@ -38,6 +39,11 @@ def option3():
     email_id = 'awk {print$3}'
     command = 'exim -bpru | grep {} | ' + email_id + ' | xargs exim -Mrm'.format(shlex.quote(email_address))
     subprocess.run(command, shell=True)
+    print("removing...")
+    time.sleep(1)
+    print(f"\nEmail queue from {email_address} removed!\n")
+    time.sleep(2)
+    subprocess.run("clear", shell=True)
 
 def option4():
     print()
@@ -55,6 +61,7 @@ def option7():
     print()
     ip_address = input("Enter IP address to block: ")
     subprocess.run("csf -d {}".format(shlex.quote(ip_address)), shell=True)
+    print(f"\nIP address {ip_address} has been blocked!\n")
 
 def option0():
     print("\n\n")
