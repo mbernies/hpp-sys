@@ -2,7 +2,7 @@ import subprocess
 import shlex
 
 def menu():
-    print("CHOOSE FROM THE OPTOINS BELOW:")
+    print("CHOOSE FROM THE OPTIONS BELOW:")
     print("[1] Total current email queue")
     print("[2] Top email address on queue")
     print("[3] Purge email queue")
