@@ -1,6 +1,8 @@
 import subprocess
 import shlex
 
+subprocess.run("clear", shell=True)
+
 def menu():
     print("CHOOSE FROM THE OPTIONS BELOW:")
     print("[1] Total current email queue")
