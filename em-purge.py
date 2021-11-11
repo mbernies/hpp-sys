@@ -15,6 +15,8 @@ def menu():
     print("[7] Block spammer IP")
     print("[0] Exit")
 
+#please disregard the line below
+
 '''
 def menu2():
     print("[1] Purge emails")
@@ -73,19 +75,19 @@ menu()
 option = int(input("\nEnter your option: "))
 
 while option != 0:
-    if option == 1:
+    if option == 1: #Total of the current email queue
         option1()
-    elif option == 2:
+    elif option == 2: #Top email address on queue
         option2()
-    elif option == 3:
+    elif option == 3: #Purge or clear the email queue of the specified email address
         option3()
-    elif option == 4:
+    elif option == 4: #List of bounce back recipient, for investigation purposes
         option4()
-    elif option == 5:
+    elif option == 5: #Clear bounce back emails on queue
         option5()
-    elif option == 6:
+    elif option == 6: #List of malicious IP address, not 100% guarantee spammers
         option6()
-    elif option == 7:
+    elif option == 7: #Deny spammer IP in CSF
         option7()
     else:
         print("\nINVALID OPTION!")
