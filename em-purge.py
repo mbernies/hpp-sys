@@ -63,7 +63,9 @@ def option6():
 def option7():
     print()
     subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $7}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
+    print()
     subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $8}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
+    print()
     subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $9}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
 
 def option8():
