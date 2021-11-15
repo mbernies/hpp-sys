@@ -8,7 +8,7 @@ def menu():
     print("CHOOSE FROM THE OPTIONS BELOW:")
     print("[1] Total current email queue")
     print("[2] List email queue")
-    print("[3] Top email address on queue")
+    print("[3] Top sender on queue")
     print("[4] Purge email queue")
     print("[5] Bounce back recipient")
     print("[6] Clear bounce back emails, '<>'")
@@ -35,6 +35,7 @@ def option1():
 def option2():
     print()
     mailqueue = subprocess.run("exim -bp | less", shell=True)
+    subprocess.run("clear", shell=True)
 
 def option3():
     print()
@@ -62,11 +63,11 @@ def option6():
 
 def option7():
     print()
-    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $7}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
+    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $7}' | grep -v 'H\=\|localhost\|mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
     print()
-    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $8}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
+    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $8}' | grep -v 'localhost\|mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
     print()
-    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $9}' | grep -v 'mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
+    subprocess.run("grep 'A=dovecot_' /var/log/exim_mainlog | grep 'T=\"' | tail -1000 | awk '{print $9}' | grep -v 'I\=\|localhost\|mail.\|.com' | sort | uniq -c | sort -n | tail", shell=True)
 
 def option8():
     print()
@@ -86,7 +87,7 @@ option = int(input("\nEnter your option: "))
 while option != 0:
     if option == 1: #Total of the current email queue
         option1()
-    elif option == 2 #List current email queue
+    elif option == 2: #List current email queue
         option2()
     elif option == 3: #Top email address on queue
         option3()
@@ -107,3 +108,4 @@ while option != 0:
     option = int(input("\nEnter your option: "))
 
 option0()
+
