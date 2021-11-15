@@ -47,10 +47,9 @@ def option4():
     email_id = 'awk {print$3}'
     command = 'exim -bpru | grep {} | ' + email_id + ' | xargs exim -Mrm'.format(shlex.quote(email_address))
     subprocess.run(command, shell=True)
-    print(f"\nEmail queue from {email_address} removed!\n")
     mail_queue = subprocess.run("exim -bpc", shell=True, stdout=subprocess.PIPE)
     print(f"Current mail queue: {mail_queue.stdout.decode()}")
-    time.sleep(2)
+    time.sleep(3)
     subprocess.run("clear", shell=True)
 
 def option5():
@@ -60,6 +59,11 @@ def option5():
 def option6():
     print()
     subprocess.run("exim -bpru | grep '<>' | awk '{print $3}' | xargs exim -Mrm", shell=True)
+    subprocess.run("clear", shell=True)
+    mail_queue = subprocess.run("exim -bpc", shell=True, stdout=subprocess.PIPE)
+    print(f"Current mail queue: {mail_queue.stdout.decode()}")
+    time.sleep(3)
+    subprocess.run("clear", shell=True)
 
 def option7():
     print()
