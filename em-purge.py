@@ -101,7 +101,7 @@ while option != 0:
         option5()
     elif option == 6: #Clear bounce back emails on queue
         option6()
-    elif option == 7: #List of malicious IP address, not 100% guarantee spammers
+    elif option == 7: #List of sender IPs
         option7()
     elif option == 8: #Deny spammer IP in CSF
         option8()
