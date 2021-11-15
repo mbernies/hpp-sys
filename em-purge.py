@@ -47,9 +47,9 @@ def option4():
     email_id = 'awk {print$3}'
     command = 'exim -bpru | grep {} | ' + email_id + ' | xargs exim -Mrm'.format(shlex.quote(email_address))
     subprocess.run(command, shell=True)
-    print("removing...")
-    time.sleep(1)
     print(f"\nEmail queue from {email_address} removed!\n")
+    mail_queue = subprocess.run("exim -bpc", shell=True, stdout=subprocess.PIPE)
+    print(f"Current mail queue: {mail_queue.stdout.decode()}")
     time.sleep(2)
     subprocess.run("clear", shell=True)
 
