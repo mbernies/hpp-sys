@@ -16,6 +16,16 @@ def menu():
     print("[8] Block spammer IP")
     print("[0] Exit")
 
+#to be added
+'''
+monitor email queue
+total email sent today from 
+
+grep 'A=dovecot_' /var/log/exim_mainlog | grep info@pharmacie-cartier.com | tail -1
+
+grep 'A=dovecot_login:info@pharmacie-cartier.com' /var/log/exim_mainlog | grep '2021-11-17' | wc -l
+'''
+
 #please disregard the line below
 
 '''
