@@ -44,7 +44,7 @@ def option1():
 
 def option2():
     print()
-    mailqueue = subprocess.run("exim -bp | less", shell=True)
+    subprocess.run("exim -bp | less", shell=True)
     subprocess.run("clear", shell=True)
 
 def option3():
@@ -64,7 +64,7 @@ def option4():
 
 def option5():
     print()
-    subprocess.run("grep '<= <> ' /var/log/exim_mainlog | tail -500 | awk '{print $1" "$24}' | sort | uniq -c | sort -n | tail", shell=True)
+    subprocess.run("exim -bpa | grep '<>' | awk '{print $3}' | while read -r id; do exim -Mvh ${id} | grep -Ew 'for'; done | awk '{print $2}' | sort | uniq -c | sort -n | tail", shell=True)
 
 def option6():
     print()
